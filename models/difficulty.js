@@ -14,11 +14,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Difficulty.init({
-    difficulty_id: DataTypes.INTEGER,
-    difficulty: DataTypes.STRING
+    difficulty_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    difficulty: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Difficulty',
+    tableName: 'difficulties',
+    timestamps: false
   });
   return Difficulty;
 };
