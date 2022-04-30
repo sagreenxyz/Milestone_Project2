@@ -5,6 +5,7 @@ A template of README best practices to make your README simple to understand and
 ## Table of Contents
 
 - [Description](#description)
+- [ERD](#erd)
 - [Wireframe](#wireframe)
 - [Mockup](#mockup)
 - [Technology](#technology)
@@ -13,6 +14,10 @@ A template of README best practices to make your README simple to understand and
 - [Sources](#sources)
 
 ## Project Description
+
+## ERD
+
+![Image of Trivia ERD](./public/erd.png)
 
 ## Wireframe
 
