@@ -1,9 +1,12 @@
 import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 
 export default function Play () {
     return (
-        <div>
-            <Button variant='primary' size='lg'>Play Trivia</Button>
+        <div className='play'>
+            <Button variant='dark' size='lg'>
+                <Link className='text-link' to='/play/game' >Play Trivia</Link>
+            </Button>
         </div>
     )
 }
