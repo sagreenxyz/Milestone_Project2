@@ -43,6 +43,11 @@
   color: black;
 }
 
+.button-link {
+  text-decoration: none;
+  color: white;
+}
+
 .play {
   margin-top: 20px;
 }
