@@ -14,18 +14,32 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Question.init({
-    question_id: DataTypes.INTEGER,
-    category_id: DataTypes.INTEGER,
-    question_type_id: DataTypes.INTEGER,
-    difficulty_id: DataTypes.INTEGER,
-    question: DataTypes.STRING,
-    question_answer1: DataTypes.STRING,
-    question_answer2: DataTypes.STRING,
-    question_answer3: DataTypes.STRING,
-    question_answer4: DataTypes.STRING
+    question_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    question_type_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    difficulty_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    question_text: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'Question',
+    tableName: 'questions',
+    timestamps: false
   });
   return Question;
 };

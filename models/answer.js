@@ -14,13 +14,28 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Answer.init({
-    answer_id: DataTypes.INTEGER,
-    question_id: DataTypes.INTEGER,
-    answer_text: DataTypes.STRING,
-    flag_correct: DataTypes.BOOLEAN
+    answer_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    question_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    answer_text: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    flag_correct: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Answer',
+    tableName: 'answers',
+    timestamps: false
   });
   return Answer;
 };

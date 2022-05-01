@@ -14,11 +14,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Question_Type.init({
-    question_type_id: DataTypes.INTEGER,
-    question_type: DataTypes.STRING
+    question_type_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    question_type: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'Question_Type',
+    tableName: 'question_types',
+    timestamps: false
   });
   return Question_Type;
 };
