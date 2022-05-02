@@ -3,10 +3,9 @@ import './App.css';
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 
-import Home from './components/Home'
 import Play from './components/Play'
-import Start from './components/Start'
-import Game from './components/Game';
+import Home from './components/Home'
+import Game from './components/Game'
 import Questions from './components/Questions'
 import NewQuestion from './components/NewQuestion'
 import QuestionDetails from './components/QuestionDetails';
@@ -34,6 +33,11 @@ function App() {
                   <Link className='text-link' to="/questions">Questions</Link>
                 </Nav.Link>
               </Nav.Item>
+              <Nav.Item as='li'>
+                <Nav.Link eventKey={"AboutUs"}>
+                  <Link className='text-link' to="/AboutUs">About Us</Link>
+                </Nav.Link>
+              </Nav.Item>
             </Nav>
           </Container>
 
@@ -42,14 +46,13 @@ function App() {
         <div className='display'>
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/play/game' element={<Game />}/>
             <Route path='/questions/new' element={<NewQuestion />} />
             <Route path='/questions' element={<Questions />} />
             <Route path='/questions/:id' element={<QuestionDetails />} />
              {/*
             <Route path='/questions/:id/edit' element={<EditQuestion/>} /> */}
             <Route path='/play' element={<Play />} />
-            <Route path='/play/start' element={<Start />}/>
-            <Route path='/play/start/*' element={<Game />}/>
           </Routes>
         </div>
 
