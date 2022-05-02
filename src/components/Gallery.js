@@ -1,10 +1,20 @@
-import GalleryItem from "./GalleryItem"
+import { useContext } from "react"
+import GalleryItem from './GalleryItem'
 
-export default function Gallery () {
+
+ function Gallery () {
+    const data = useContext(GalleryItem).result.read()
+
+    const display = data.map((item,index) => {
+        return (
+            <GalleryItem item={item} key={index} />
+        )
+    })
     return (
         <div>
-            <GalleryItem />
-
+            <h1>Questions</h1>
         </div>
     )
 }
+
+export default Gallery

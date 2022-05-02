@@ -5,7 +5,7 @@ export default function Play () {
     return (
         <div className='play'>
             <Button variant='dark' size='lg'>
-                <Link className='button-link' to='/play/start' >Play Trivia</Link>
+                <Link className='button-link' to='/play/game' >Play Trivia</Link>
             </Button>
         </div>
     )
