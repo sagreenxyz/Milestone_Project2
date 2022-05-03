@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container'
 import Play from './components/Play'
 import Home from './components/Home'
 import Game from './components/Game'
+import Start from './components/Start'
 import Questions from './components/Questions'
 import NewQuestion from './components/NewQuestion'
 import QuestionDetails from './components/QuestionDetails';
@@ -53,6 +54,8 @@ function App() {
              {/*
             <Route path='/questions/:id/edit' element={<EditQuestion/>} /> */}
             <Route path='/play' element={<Play />} />
+            <Route path='/play/start' element={<Start />} />
+            <Route path='/play/start/*' element={<Game />} />
           </Routes>
         </div>
 
