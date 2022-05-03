@@ -1,0 +1,30 @@
+{
+    "results": [
+        {
+            "id": 1,
+            "category": "Entertainment: Film",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "Which of the following is NOT a quote from the 1942 film Casablanca? ",
+            "correct_answer": "&quot;Frankly, my dear, I don&#039;t give a damn.&quot;",
+            "incorrect_answers": [
+                "&quot;Here&#039;s lookin&#039; at you, kid.&quot;",
+                "&ldquo;Of all the gin joints, in all the towns, in all the world, she walks into mine&hellip;&rdquo;",
+                "&quot;Round up the usual suspects.&quot;"
+            ]
+        },
+        {
+            "id": 2,
+            "category": "Entertainment: Video Games",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "When was the Sega Genesis released in Japan?",
+            "correct_answer": "October 29, 1988",
+            "incorrect_answers": [
+                "August 14, 1989",
+                "November 30, 1990",
+                "September 1, 1986"
+            ]
+        }
+    ]
+}

@@ -1,5 +1,6 @@
-import { Dropdown, Button } from "react-bootstrap"
+import { Dropdown, DropdownButton } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import { useState } from 'react'
 
 export default function Start() {
     return (
@@ -28,7 +29,7 @@ export default function Start() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu variant="dark">
-                    <Dropdown.Item>
+                    <Dropdown.Item active>
                         All
                     </Dropdown.Item>
                     <Dropdown.Divider />
@@ -59,9 +60,9 @@ export default function Start() {
                 </Dropdown.Menu>
             </Dropdown>
 
-            <Button variant='dark' size='lg'>
+            <DropdownButton variant='dark' size='lg'>
                 <Link className='button-link' to='game' >Start Game</Link>
-            </Button>
+            </DropdownButton>
         </div>
     )
 }
