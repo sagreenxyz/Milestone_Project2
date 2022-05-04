@@ -1,15 +1,19 @@
 // DEPENDENCIES
 const express = require('express')
 const app = express()
-const { Sequelize } = require('sequelize')
-const questions = require('./controllers/questions_controller')
+// const { Sequelize } = require('sequelize')
+// const questions = require('./controllers/questions_controller')
 
-// ELEPHANT SQL
+// CONFIGURATION / MIDDLEWARE
+require('dotenv').config()
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+
+
+// // ELEPHANT SQL
 // var pg = require('pg');
-//or native libpq bindings
-//var pg = require('pg').native
 
-// var conString = "postgres://juqhmdzx:aVg0D3uubhaQ-ViT38bLxAamyt7PizZ9@heffalump.db.elephantsql.com/juqhmdzx" //Can be found in the Details page
+// var conString = process.env.CONNECTION_STRING
 // var client = new pg.Client(conString);
 // client.connect(function(err) {
 //   if(err) {
@@ -24,11 +28,6 @@ const questions = require('./controllers/questions_controller')
 //     client.end();
 //   });
 // });
-
-// CONFIGURATION / MIDDLEWARE
-require('dotenv').config()
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
 
 // ROOT
 app.get('/', (req, res) => {
