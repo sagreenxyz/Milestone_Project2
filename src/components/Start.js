@@ -16,9 +16,9 @@ export default function Start() {
                         All
                     </Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item href="#/action-2">Easy</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Medium</Dropdown.Item>
-                    <Dropdown.Item href="#/action-4">Hard</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">easy</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">medium</Dropdown.Item>
+                    <Dropdown.Item href="#/action-4">hard</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
             
