@@ -8,9 +8,6 @@ const { Op } = require('sequelize');
 // FIND ALL QUESTIONS
 questions.get('/', async (req, res) => {
         try {
-        // const category = parseInt(request.params.category);
-        // const difficulty = parseInt(request.params.difficulty);
-        // const type = parseInt(request.params.type);
         const foundQuestions = await Question.findAll({
             limit: 10
         })
