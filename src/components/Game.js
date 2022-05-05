@@ -1,14 +1,30 @@
 import { useState, useEffect } from 'react'
+import { questions } from '../data' 
+
 
 export default function Game() {
     const [gameStart, startGame] = useState(false)
     const [category, setCategory] = useState('')
-    const [questions, setQuestions] = useState(null)
+    const [data, setQuestions] = useState(null)
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
 
-    useEffect(() => {
+    /*async function loadQuestions() {
+        const response = await fetch('http://localhost:5000/questions', {
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'applications/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+        const data = await response.json()
+        console.log(data)
+    }
+
+    loadQuestions()*/
+
+    /*useEffect(() => {
         fetch('http://localhost:5000/questions', {
             mode: 'no-cors'
         })
@@ -20,9 +36,9 @@ export default function Game() {
             console.log(questions)
         })
         
-    }, []) 
+    }, []) */
 
-    /*const handleAnswerOptionClick = () => {
+    const handleAnswerOptionClick = () => {
         
         setScore(score + 1);
         
@@ -33,12 +49,11 @@ export default function Game() {
         } else {
             setShowScore(true);
         }
-    }*/
+    }
 
     return (
         <div className='app'>
-            <h1>Game</h1>
-            {/* {showScore ? (
+            { showScore ? (
                 <div className='score-section'>
                     You scored {score} out of {questions.length}
                 </div>
@@ -48,15 +63,15 @@ export default function Game() {
                         <div className='question-count'>
                             <span>Question {currentQuestion + 1}</span>/{questions.length}
                         </div>
-                        <div className='question-text'>{questions[currentQuestion].questionText}</div>
+                        <h4 className='question-text'>{questions[currentQuestion].questionText}</h4>
                     </div>
                     <div className='answer-section'>
-                        {questions[currentQuestion].answerOptions.map((answerOption) => (
-                            <button onClick={() => handleAnswerOptionClick()}>Answer</button>
-                        ))}
-                    </div>
+						{questions[currentQuestion].answerOptions.map((answerOption) => (
+							<button classname="answer-button" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+						))}
+					</div>
                 </>
-            )} */}
+            )} 
         </div>
     )
 }
