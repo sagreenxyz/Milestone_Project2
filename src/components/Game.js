@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { questions } from '../data' 
+import { questions as db } from '../data'
 
 
 export default function Game() {
@@ -38,10 +38,31 @@ export default function Game() {
         
     }, []) */
 
+    function ShuffleQuestions(array) {
+        let currentIndex = array.length, randomIndex;
+
+        // While there remain elements to shuffle.
+        while (currentIndex != 0) {
+
+            // Pick a remaining element.
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+        }
+
+        console.log(currentIndex)
+        return array;
+    }
+
+    const questions = ShuffleQuestions(db)
+
     const handleAnswerOptionClick = () => {
-        
+
         setScore(score + 1);
-        
+
 
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < questions.length) {
@@ -53,7 +74,7 @@ export default function Game() {
 
     return (
         <div className='app'>
-            { showScore ? (
+            {showScore ? (
                 <div className='score-section'>
                     You scored {score} out of {questions.length}
                 </div>
@@ -66,12 +87,12 @@ export default function Game() {
                         <h4 className='question-text'>{questions[currentQuestion].questionText}</h4>
                     </div>
                     <div className='answer-section'>
-						{questions[currentQuestion].answerOptions.map((answerOption) => (
-							<button classname="answer-button" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
-						))}
-					</div>
+                        {questions[currentQuestion].answerOptions.map((answerOption) => (
+                            <button classname="answer-button" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                        ))}
+                    </div>
                 </>
-            )} 
+            )}
         </div>
     )
 }
