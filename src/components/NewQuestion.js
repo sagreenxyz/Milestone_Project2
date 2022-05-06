@@ -4,7 +4,7 @@ export default function NewQuestion() {
     return (
         <div>
             <h1>Create a question!</h1>
-            <Form>
+            {/* <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
@@ -23,7 +23,17 @@ export default function NewQuestion() {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-            </Form>
+            </Form> */}
+            <form action="http://localhost:5000/questions" method="POST">
+                <label htmlFor="category_id">Choose a Category:</label>
+                <select id="category" name="category_id" size="3">
+                        <option value="1">Animals</option>
+                        <option value="2">Art</option>
+                        <option value="3">Celebrities</option>
+                        <option value="4">Entertainment: Board Games</option>
+                </select>
+                <input type="submit"/>
+            </form>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function AboutUs () {
     return (
-        <div class='AboutUs'>
+        <div className='AboutUs'>
         <h1>About Us</h1>
         <br/>
         <li>We are KU Software Developer's students</li>

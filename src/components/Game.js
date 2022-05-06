@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 export default function Game() {
     const [gameStart, startGame] = useState(false)
     const [category, setCategory] = useState('')
-    const [questions, setQuestions] = useState(null)
+    const [questions, setQuestions] = useState([])
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
@@ -13,11 +13,11 @@ export default function Game() {
             mode: 'no-cors'
         })
         .then(res => {
-            return res.json();
+            return res;
+            console.log(res)
         })
         .then(data => {
             setQuestions(data)
-            console.log(questions)
         })
         
     }, []) 
