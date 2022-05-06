@@ -121,3 +121,7 @@
 .answer-button:hover {
   background-color: #555e7d;
 }
+
+.display {
+  background-color: rgb(184, 137, 75)
+}

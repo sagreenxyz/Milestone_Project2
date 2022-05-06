@@ -5,11 +5,7 @@ import { questions } from '../data'
 export default function Game() {
     const [gameStart, startGame] = useState(false)
     const [category, setCategory] = useState('')
-<<<<<<< HEAD
-    const [questions, setQuestions] = useState([])
-=======
     const [data, setQuestions] = useState(null)
->>>>>>> 8f61eb925dae8093bfac8ef4b40208a7c2e9f85f
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
