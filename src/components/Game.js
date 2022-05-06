@@ -29,11 +29,11 @@ export default function Game() {
             mode: 'no-cors'
         })
         .then(res => {
-            return res.json();
+            return res;
+            console.log(res)
         })
         .then(data => {
             setQuestions(data)
-            console.log(questions)
         })
         
     }, []) */

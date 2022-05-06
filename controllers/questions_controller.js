@@ -9,7 +9,11 @@ const { Op } = require('sequelize');
 questions.get('/', async (req, res) => {
         try {
         const foundQuestions = await Question.findAll({
-            limit: 10
+            limit: 10,
+            include: {
+                model: Answer,
+                as: "answers"
+            }
         })
 
         res.status(200).json(foundQuestions)

@@ -19,6 +19,9 @@ app.get('/', (req, res) => {
 const questionsController = require('./controllers/questions_controller')
 app.use('/questions', questionsController)
 
+const answersController = require('./controllers/answers_controller')
+app.use('/answers', answersController)
+
 // LISTEN
 app.listen(port, () => {
     console.log(`Express backend is connected to react on port ${port}`)

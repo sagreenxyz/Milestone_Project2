@@ -23,6 +23,10 @@ module.exports = {
       question_text: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false
       }
     });
   },
