@@ -10,7 +10,6 @@ import AboutUs from './components/AboutUs'
 import Game from './components/Game'
 import Questions from './components/Questions'
 import NewQuestion from './components/NewQuestion'
-import QuestionDetails from './components/QuestionDetails';
 
 function App() {
   return (
@@ -51,7 +50,6 @@ function App() {
             <Route path='/AboutUs' element={<AboutUs/>}/>
             <Route path='/questions/new' element={<NewQuestion />} />
             <Route path='/questions' element={<Questions />} />
-            <Route path='/questions/:id' element={<QuestionDetails />} />
 
              {/*
             <Route path='/questions/:id/edit' element={<EditQuestion/>} /> */}

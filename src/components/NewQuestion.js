@@ -62,7 +62,7 @@ export default function NewQuestion() {
                 <br/>
                 <label htmlFor="email">Enter your email</label>
                 <br/>
-                <input type="email" class="form-control" name="email" id="email"/>
+                <input type="email" class="form-control" name="email" id="email" required/>
                 <br/>
                 <Button variant='dark' size='lg' type="submit">
                     Submit
