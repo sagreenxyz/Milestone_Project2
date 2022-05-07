@@ -1,32 +1,19 @@
 import { Form, Button } from "react-bootstrap"
+import { useState } from 'react'
 
 export default function NewQuestion() {
+    // let [message, setMessage] = useState('')
+
+    // const handleSubmit = () => {
+    //     setMessage('Successfully added new question.')
+    // }
+
     return (
         <>
         <div><h1>Create a question!</h1></div>
         <div class="d-flex justify-content-center">
         <div class="col-sm-6">
-            {/* <Form>
-                <Form.Group action="http://localhost:5000/questions" method="POST" className="mb-3" controlId="email">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control name="email" type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form> */}
-            <form action="http://localhost:5000/questions" method="POST">
+            <form target="my_iframe" action="http://localhost:5000/questions" method="POST">
                 <label htmlFor="category_id">Choose a Category</label>
                 <br/>
                 <select class="form-select form-select-sm"  id="category" name="category_id">
@@ -81,6 +68,10 @@ export default function NewQuestion() {
                     Submit
                 </Button>
             </form>
+            <h5>We will review your question after it has been submitted. 
+                Once the question is approved a member of our trivia team will reach out to you at the submitted email
+                so you can provide answers for your question!</h5>
+                <iframe id="iframe" name="my_iframe"></iframe>
         </div>
         </div>
         </>

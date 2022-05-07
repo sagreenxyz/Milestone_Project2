@@ -8,23 +8,19 @@ export default function Home () {
             <br/>
             <br/>
             <h2>How to play?</h2>
-     <li>click in the play tab</li>
-     <li>click in the play Trivia Button</li>
-     <li>choose the difficult level</li>
-     <li>Each questions would have multiple answer</li>
-     <li>click and submit the best answer</li>
-     <li>Level up or down depending on how many points you get</li>
+     <li>Click on the play tab</li>
+     <li>Click on the play Trivia Button</li>
+     <li>Choose the difficulty level</li>
+     <li>Each question will have multiple answers</li>
+     <li>Click and submit the best answer</li>
+     <li>Your final score will be provided once all questions have been answered</li>
      <br/>
      <br/>
      <h2>To submit your own Trivia Question</h2>
      <li>Show your knowledge by creating trivia questions!</li>
-     <li>click in the Questions tab</li>
-     <li>click on Create Question Button</li>
-     <li>enter your email and password</li>
-     <li>Submit</li>
-     <li>Write your question</li>
-    <li>Select the difficulty level</li>
-     <li>Submit</li>
+     <li>Click on the Questions Tab in the navigation bar</li>
+     <li>Click on the Create Question Button</li>
+     <li>Fill out the form and submit</li>
     </div>
     )
        
