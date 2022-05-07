@@ -22,12 +22,11 @@ questions.get('/', async (req, res) => {
     }
 })
 
-// FIND A SPECIFIC QUESTIONS ANSWERS
-questions.get('/:id', async (req, res) => {
+// FIND A USER ANSWERS BY EMAIL
+questions.get('/:email', async (req, res) => {
     try {
-        const foundQuestion = await Answer.findAll({
-            limit: 4,
-            where: { question_id: req.params.id }
+        const foundQuestion = await Question.findAll({
+            where: { email: { [Op.like]: `%${req.query.email ? req.query.email : ''}%` } }
         })
         res.status(200).json(foundQuestion)
     } catch (error) {
@@ -39,10 +38,10 @@ questions.get('/:id', async (req, res) => {
 questions.post('/', async (req, res) => {
     try {
         const newQuestion = await Question.create(req.body)
-        res.status(200).json({
-            message: 'Successfully inserted a new question.',
-            data: newQuestion
-        })
+        // res.status(200).json({
+        //     message: 'Successfully inserted a new question.',
+        //     data: newQuestion
+        // })
     } catch(err) {
         res.status(500).json(err)
     }
