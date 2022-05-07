@@ -22,12 +22,12 @@ questions.get('/', async (req, res) => {
     }
 })
 
-// FIND A SPECIFIC QUESTIONS ANSWERS
-questions.get('/:id', async (req, res) => {
+// FIND A USER ANSWERS BY EMAIL
+questions.get('/email', async (req, res) => {
     try {
         const foundQuestion = await Answer.findAll({
             limit: 4,
-            where: { question_id: req.params.id }
+            where: { email: req.params.email }
         })
         res.status(200).json(foundQuestion)
     } catch (error) {

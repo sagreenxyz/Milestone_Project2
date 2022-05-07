@@ -64,7 +64,7 @@ export default function NewQuestion() {
                 <br/>
                 <input type="email" class="form-control" name="email" id="email"/>
                 <br/>
-                <Button variant="primary" type="submit">
+                <Button variant='dark' size='lg' type="submit">
                     Submit
                 </Button>
             </form>

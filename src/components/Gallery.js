@@ -12,7 +12,7 @@ import GalleryItem from './GalleryItem'
     // })
     return (
         <div>
-            <h1>Questions</h1>
+            <GalleryItem/>
         </div>
     )
 }
