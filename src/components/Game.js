@@ -10,19 +10,13 @@ export default function Game() {
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
 
-    /*async function loadQuestions() {
-        const response = await fetch('http://localhost:5000/questions', {
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'applications/json',
-                'Access-Control-Allow-Origin': '*'
-            }
-        })
+    async function loadQuestions() {
+        const response = await fetch('http://localhost:5000/questions')
         const data = await response.json()
         console.log(data)
     }
 
-    loadQuestions()*/
+    loadQuestions()
 
     /*useEffect(() => {
         fetch('http://localhost:5000/questions', {
@@ -75,12 +69,12 @@ export default function Game() {
     return (
         <div className='app'>
             {showScore ? (
-                <div className='score-section'>
+                <div className='score'>
                     You scored {score} out of {questions.length}
                 </div>
             ) : (
                 <>
-                    <div className='question-section'>
+                    <div className='question'>
                         <div className='question-count'>
                             <span>Question {currentQuestion + 1}</span>/{questions.length}
                         </div>
