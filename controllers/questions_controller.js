@@ -23,11 +23,10 @@ questions.get('/', async (req, res) => {
 })
 
 // FIND A USER ANSWERS BY EMAIL
-questions.get('/email', async (req, res) => {
+questions.get('/:email', async (req, res) => {
     try {
-        const foundQuestion = await Answer.findAll({
-            limit: 4,
-            where: { email: req.params.email }
+        const foundQuestion = await Question.findAll({
+            where: { email: { [Op.like]: `%${req.query.email ? req.query.email : ''}%` } }
         })
         res.status(200).json(foundQuestion)
     } catch (error) {

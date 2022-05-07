@@ -1,7 +1,8 @@
 import Button from 'react-bootstrap/Button'
 import Gallery from './Gallery'
+import SearchBar from './SearchBar'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 export default function Questions () {
@@ -27,19 +28,39 @@ export default function Questions () {
     //     })
     // }
 
+    let [search, setSearch] = useState('')
+    let [data, setData] = useState([])
+  
+    const API_URL = 'http://localhost:5000/questions/email?email='
+  
+    useEffect(() => {
+        if(search) {
+            const fetchData = async () => {
+                const response = await fetch(API_URL + search)
+                const resData = await response.json()
+                console.log(resData)
+                if (resData.length > 0) {
+                    return setData(resData.results)
+                } else {
+                    return setMessage('Not Found.')
+                }
+            }
+            fetchData()
+        }
+    }, [search])
+  
+    const handleSearch = (e, term) => {
+        e.preventDefault()
+        setSearch(term)
+    }
+
     return (
         <div> 
             <Button variant='dark' size='lg'>
                 <Link className='button-link' to='/questions/new' >Create Question</Link>
             </Button>
-            <form>
-                <label>Search your questions:</label>
-                <br/>
-                <input id="email" placeholder="example@domain.com" type="email"></input>
-                <br/>
-                <button type="submit">Submit</button>
-            </form>
-            <Gallery />
+            <SearchBar handleSearch={handleSearch}/>
+            <Gallery data={data}/>
         </div>
     )
 }
