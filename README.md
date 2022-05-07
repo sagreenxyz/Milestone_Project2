@@ -1,5 +1,9 @@
 # Project Title
 
+## Deployment
+
+This project is deployed on Netlify at the following [Link](https://astonishing-profiterole-3abd38.netlify.app/).
+
 A template of README best practices to make your README simple to understand and easy to use. 
 
 ## Table of Contents
