@@ -34,6 +34,18 @@ questions.get('/:email', async (req, res) => {
     }
 })
 
+// // FIND QUESTION BY ID
+// questions.get('/:id', async (req, res) => {
+//     try {
+//         const foundQuestion = await Question.findOne({
+//             where: { question_id: req.params.id }
+//         })
+//         res.status(200).json(foundQuestion)
+//     } catch (error) {
+//         res.status(500).json(error)
+//     }
+// })
+
 // CREATE A QUESTION
 questions.post('/', async (req, res) => {
     try {
@@ -47,7 +59,7 @@ questions.post('/', async (req, res) => {
     }
 })
 
-// UPDATE A question
+// UPDATE A QUESTION
 questions.put('/:id', async (req, res) => {
     try {
         const updatedQuestion = await Question.update(req.body, {
@@ -71,9 +83,7 @@ questions.delete('/:id', async (req, res) => {
                 question_id: req.params.id
             }
         })
-        res.status(200).json({
-            message: `Successfully deleted question.`
-        })
+        res.status(200).redirect('http://localhost:3000/questions')
     } catch(err) {
         res.status(500).json(err)
     }

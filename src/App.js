@@ -10,6 +10,7 @@ import AboutUs from './components/AboutUs'
 import Game from './components/Game'
 import Questions from './components/Questions'
 import NewQuestion from './components/NewQuestion'
+import ViewQuestion from './components/ViewQuestion';
 
 function App() {
   return (
@@ -46,15 +47,16 @@ function App() {
 
         <div className='display'>
           <Routes>
-            <Route path='/' element={<Home />} />
             <Route path='/AboutUs' element={<AboutUs/>}/>
             <Route path='/questions/new' element={<NewQuestion />} />
             <Route path='/questions' element={<Questions />} />
+            <Route path='/:id' element={<ViewQuestion />} />
 
              {/*
             <Route path='/questions/:id/edit' element={<EditQuestion/>} /> */}
             <Route path='/play' element={<Play />} />
             <Route path='/play/game' element={<Game />} />
+            <Route path='/' element={<Home />} />
           </Routes>
         </div>
 
