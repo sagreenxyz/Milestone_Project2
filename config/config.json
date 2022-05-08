@@ -1,21 +1,21 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "benj4min21",
-    "database": "trivia",
-    "host": "127.0.0.1",
+    "username": "juqhmdzx",
+    "password": "aVg0D3uubhaQ-ViT38bLxAamyt7PizZ9",
+    "database": "juqhmdzx",
+    "host": "heffalump.db.elephantsql.com",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
-    "password": "benj4min21",
+    "password": "",
     "database": "trivia_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
-    "password": "benj4min21",
+    "password": "",
     "database": "trivia_production",
     "host": "127.0.0.1",
     "dialect": "postgres"

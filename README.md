@@ -1,6 +1,14 @@
 # Milestone Project 2
 
+
 This milestone project takes place at the end of the web developer unit of the program. It's meant to put into practice skills learned in courses 6 (Back-end Development & APIs), 7 (React & Redux), and 8 (SQL & data Modeling)
+
+## Deployment
+
+This project is deployed on Netlify at the following [Link](https://astonishing-profiterole-3abd38.netlify.app/).
+
+A template of README best practices to make your README simple to understand and easy to use. 
+
 
 ## Table of Contents
 

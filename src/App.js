@@ -2,16 +2,14 @@ import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 import './App.css';
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
-import TriviaLogo from '/Users/bzhao/Desktop/Module8/Milestone_Project2/src/Images/TriviaLogo.png';
+import TriviaLogo from '../src/Images/TriviaLogo.png';
 
 import Play from './components/Play'
 import Home from './components/Home'
 import AboutUs from './components/AboutUs'
 import Game from './components/Game'
-import Start from './components/Start'
 import Questions from './components/Questions'
 import NewQuestion from './components/NewQuestion'
-import QuestionDetails from './components/QuestionDetails';
 
 function App() {
   return (
@@ -50,16 +48,13 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/AboutUs' element={<AboutUs/>}/>
-            <Route path='/play/game' element={<Game />}/>
             <Route path='/questions/new' element={<NewQuestion />} />
             <Route path='/questions' element={<Questions />} />
-            <Route path='/questions/:id' element={<QuestionDetails />} />
 
              {/*
             <Route path='/questions/:id/edit' element={<EditQuestion/>} /> */}
             <Route path='/play' element={<Play />} />
-            <Route path='/play/start' element={<Start />} />
-            <Route path='/play/start/*' element={<Game />} />
+            <Route path='/play/game' element={<Game />} />
           </Routes>
         </div>
 
