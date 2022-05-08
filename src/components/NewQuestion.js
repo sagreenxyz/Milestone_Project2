@@ -1,22 +1,45 @@
 import { Form, Button } from "react-bootstrap"
-import { useState } from 'react'
+import axios from "axios"
 
 export default function NewQuestion() {
-    // let [message, setMessage] = useState('')
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-    // const handleSubmit = () => {
-    //     setMessage('Successfully added new question.')
-    // }
+        const category_id = document.getElementById("category_id");
+        const difficulty_id = document.getElementById("difficulty_id");
+        const question_type_id = document.getElementById("question_type_id");
+        const question_text = document.getElementById("question_text");
+        const email = document.getElementById("email");
+    
+        await axios
+          .post("http://localhost:5000/questions", {
+            category_id: category_id.value,
+            difficulty_id: difficulty_id.value,
+            question_type_id: question_type_id.value,
+            question_text: question_text.value,
+            email: email.value,
+          })
+          .then((data) => {
+            console.log(data);
+            if (data.data.success) {
+              console.log("posted question");
+            }
+          })
+          .catch((error) => {
+            console.log("question not posted");
+          });
+          event.target.reset();
+      }
 
     return (
         <>
         <div><h1>Create a question!</h1></div>
         <div class="d-flex justify-content-center">
         <div class="col-sm-6">
-            <form target="my_iframe" action="http://localhost:5000/questions" method="POST">
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="category_id">Choose a Category</label>
                 <br/>
-                <select class="form-select form-select-sm"  id="category" name="category_id">
+                <select class="form-select form-select-sm"  id="category_id" name="category_id">
                         <option value="1">Animals</option>
                         <option value="2">Art</option>
                         <option value="3">Celebrities</option>
@@ -44,21 +67,21 @@ export default function NewQuestion() {
                 </select>
                 <label htmlFor="difficulty_id">Choose a Difficulty</label>
                 <br/>
-                <select class="form-select form-select-sm"  id="difficulty" name="difficulty_id">
+                <select class="form-select form-select-sm"  id="difficulty_id" name="difficulty_id">
                         <option value="1">Easy</option>
                         <option value="2">Medium</option>
                         <option value="3">Hard</option>
                 </select>
                 <label htmlFor="question_type_id">Choose a Question Type</label>
                 <br/>
-                <select class="form-select form-select-sm"  id="difficulty" name="question_type_id">
+                <select class="form-select form-select-sm"  id="question_type_id" name="question_type_id">
                         <option value="1">True / False</option>
                         <option value="2">Multiple Choice</option>
                 </select>
                 <br/>
                 <label htmlFor="question_text">Enter your question!</label>
                 <br/>
-                <input type="text" class="form-control" name="question_text" id="question"/>
+                <input type="text" class="form-control" name="question_text" id="question_text"/>
                 <br/>
                 <label htmlFor="email">Enter your email</label>
                 <br/>
@@ -71,7 +94,6 @@ export default function NewQuestion() {
             <h5>We will review your question after it has been submitted. 
                 Once the question is approved a member of our trivia team will reach out to you at the submitted email
                 so you can provide answers for your question!</h5>
-                <iframe id="iframe" name="my_iframe"></iframe>
         </div>
         </div>
         </>
