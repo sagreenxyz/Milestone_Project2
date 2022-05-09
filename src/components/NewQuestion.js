@@ -1,10 +1,13 @@
 import { Form, Button } from "react-bootstrap"
 import axios from "axios"
+import { useState } from "react";
 
 export default function NewQuestion() {
+  let [message, setMessage] = useState("");
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        setMessage("")
         const category_id = document.getElementById("category_id");
         const difficulty_id = document.getElementById("difficulty_id");
         const question_type_id = document.getElementById("question_type_id");
@@ -29,6 +32,7 @@ export default function NewQuestion() {
             console.log("question not posted");
           });
           event.target.reset();
+          setMessage("Successfully added new question.")
       }
 
     return (
@@ -78,11 +82,9 @@ export default function NewQuestion() {
                         <option value="1">True / False</option>
                         <option value="2">Multiple Choice</option>
                 </select>
-                <br/>
                 <label htmlFor="question_text">Enter your question!</label>
                 <br/>
                 <input type="text" class="form-control" name="question_text" id="question_text"/>
-                <br/>
                 <label htmlFor="email">Enter your email</label>
                 <br/>
                 <input type="email" class="form-control" name="email" id="email" required/>
@@ -94,6 +96,7 @@ export default function NewQuestion() {
             <h5>We will review your question after it has been submitted. 
                 Once the question is approved a member of our trivia team will reach out to you at the submitted email
                 so you can provide answers for your question!</h5>
+                <h6 style={{color:"red"}}>{message}</h6>
         </div>
         </div>
         </>

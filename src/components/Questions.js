@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button'
 import QuestionContainer from './QuestionContainer'
 import SearchBar from './SearchBar'
+import ViewQuestion from './ViewQuestion'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 

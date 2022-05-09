@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000;
 const cors = require('cors')
+const methodOverride = require('method-override')
 
 app.use(cors())
 
@@ -10,6 +11,7 @@ app.use(cors())
 require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(methodOverride('_method'))
 
 // ROOT
 app.get('/', (req, res) => {
