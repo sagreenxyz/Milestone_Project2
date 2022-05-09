@@ -31,3 +31,8 @@ app.use('/answers', answersController)
 app.listen(port, () => {
     console.log(`Express backend is connected to react on port ${port}`)
 })
+
+//** WILD CARD
+app.get('*', (req, res) => {
+    res.render('notFound')
+  })

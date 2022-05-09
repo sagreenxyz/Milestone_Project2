@@ -34,17 +34,6 @@ questions.get('/:email', async (req, res) => {
     }
 })
 
-// // FIND QUESTION BY ID
-// questions.get('/:id', async (req, res) => {
-//     try {
-//         const foundQuestion = await Question.findOne({
-//             where: { question_id: req.params.id }
-//         })
-//         res.status(200).json(foundQuestion)
-//     } catch (error) {
-//         res.status(500).json(error)
-//     }
-// })
 
 // CREATE A QUESTION
 questions.post('/', async (req, res) => {
