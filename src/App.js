@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container'
 import TriviaLogo from '../src/Images/TriviaLogo.png';
 
 import Play from './components/Play'
-import Home from './components/home'
+import Home from './components/Home'
 import AboutUs from './components/AboutUs'
 import Game from './components/Game'
 import Questions from './components/Questions'

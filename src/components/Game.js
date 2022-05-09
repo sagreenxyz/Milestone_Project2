@@ -1,88 +1,88 @@
 import { useState, useEffect } from 'react'
-import { questions as db } from '../data'
+//import { questions as db } from '../data'
 
 
 export default function Game() {
     const [gameStart, startGame] = useState(false)
     const [category, setCategory] = useState('')
-    const [data, setQuestions] = useState(null)
+    const [Qs, setQuestions] = useState(null)
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [score, setScore] = useState(0);
 
-    async function loadQuestions() {
-        const response = await fetch('http://localhost:5000/questions')
-        const data = await response.json()
-        console.log(data)
+    // Supposed to shuffle answers, but not working yet. Causes a delay in render.
+    function ShuffleAnswers(array) {
+        array.map((question) => {
+            let currentIndex = question.answers.length, randomIndex;
+
+            // While there remain elements to shuffle.
+            while (currentIndex != 0) {
+
+                // Pick a remaining element.
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+
+                // And swap it with the current element.
+                [question[currentIndex], question[randomIndex]] =
+                    [question[randomIndex], question[currentIndex]];
+            }
+            
+        })
+        return array
     }
 
-    loadQuestions()
+    useEffect(() => {
+        fetch('http://localhost:5000/questions')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setQuestions(ShuffleAnswers(data))
 
-    /*useEffect(() => {
-        fetch('http://localhost:5000/questions', {
-            mode: 'no-cors'
-        })
-        .then(res => {
-            return res;
-            console.log(res)
-        })
-        .then(data => {
-            setQuestions(data)
-        })
-        
-    }, []) */
+            })
+            .catch(err => {
+                console.log(err)
+            })
 
-    function ShuffleQuestions(array) {
-        let currentIndex = array.length, randomIndex;
+    }, []);
 
-        // While there remain elements to shuffle.
-        while (currentIndex != 0) {
+    console.log(Qs)
 
-            // Pick a remaining element.
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
 
-            // And swap it with the current element.
-            [array[currentIndex], array[randomIndex]] = [
-                array[randomIndex], array[currentIndex]];
+    // from https://www.freecodecamp.org/news/how-to-build-a-quiz-app-using-react/
+    const handleAnswerOptionClick = (isCorrect) => {
+        if (isCorrect) {
+            setScore(score + 1);
+            console.log('is correct')
+            //document.getElementById('answer').style.backgroundColor = 'green'
         }
 
-        console.log(currentIndex)
-        return array;
-    }
-
-    const questions = ShuffleQuestions(db)
-
-    const handleAnswerOptionClick = () => {
-
-        setScore(score + 1);
 
 
         const nextQuestion = currentQuestion + 1;
-        if (nextQuestion < questions.length) {
+        if (nextQuestion < Qs.length) {
             setCurrentQuestion(nextQuestion);
         } else {
             setShowScore(true);
+            console.log('game over')
         }
     }
 
     return (
         <div className='app'>
             {showScore ? (
-                <div className='score'>
-                    You scored {score} out of {questions.length}
+                <div >
+                     <h3><span>Your score:</span>{Qs && (score/Qs.length)*100}% </h3>
                 </div>
             ) : (
                 <>
-                    <div className='question'>
-                        <div className='question-count'>
-                            <span>Question {currentQuestion + 1}</span>/{questions.length}
-                        </div>
-                        <h4 className='question-text'>{questions[currentQuestion].questionText}</h4>
+                    <div>
+                        <h4 className='question-count'> {currentQuestion + 1}/{Qs && Qs.length}</h4>
+                        <h4>{Qs && Qs[currentQuestion].question_text} </h4>
                     </div>
-                    <div className='answer-section'>
-                        {questions[currentQuestion].answerOptions.map((answerOption) => (
-                            <button classname="answer-button" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                    <div className='answers'>
+                        {Qs && Qs[currentQuestion].answers.map((answer) => (
+                            <button onClick={() => handleAnswerOptionClick(answer.flag_correct)}>{answer.answer_text}</button>
                         ))}
                     </div>
                 </>
