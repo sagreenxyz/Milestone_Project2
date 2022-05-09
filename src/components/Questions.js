@@ -9,6 +9,7 @@ export default function Questions () {
 
     let [search, setSearch] = useState('')
     let [data, setData] = useState([])
+    let [message, setMessage] = useState("")
   
     const API_URL = 'http://localhost:5000/questions/email?email='
   
