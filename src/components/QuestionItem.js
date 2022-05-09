@@ -9,7 +9,7 @@ export default function QuestionItem (props) {
 
     const handleDelete = async (event) => {
         event.preventDefault();
-        const id = document.getElementById("question_id").value;
+        const id = document.getElementById("props.item.question_id").value;
         const removeID = document.getElementById("question_id");
         const removeText = document.getElementById("question_text");
         const removeDeleteBtn = document.getElementById("deleteButton");
@@ -43,8 +43,9 @@ export default function QuestionItem (props) {
 
       const handleEdit = async (event) => {
         event.preventDefault();
-        const id = document.getElementById("question_id").value;
-        const question_text = document.getElementById("question_text")
+        setMessage("")
+        const id = document.getElementById(`${props.item.question_id}`).value;
+        const question_text = document.getElementById(`${props.item.question_text}`)
     
         await axios
           .put(`http://localhost:5000/questions/${id}`, {
@@ -67,22 +68,21 @@ export default function QuestionItem (props) {
 
 
     return (
-        <li>
-             <h6>{message}</h6>   
+        <li>   
             <form>
             <label id="questionTextLabel" style={{display:"inline-block", width:"100px", textAlign:"right", paddingRight:"10px"}}>Question:</label>
             <input 
             defaultValue={props.item.question_text} 
             type="text"  
-            id="question_text" 
+            id={props.item.question_text} 
             style={{width:"50%"}}
             />
             <br/>
             <label id="questionIDLabel" style={{display:"inline-block", width:"100px", textAlign:"right", paddingRight:"10px"}}>Question ID:</label>
             <input 
-            value={props.item.question_id} 
+            value={props.item.question_id}
             type="text" 
-            id="question_id"
+            id={props.item.question_id}
             style={{width:"50%"}} 
             />
             <br/>
@@ -92,6 +92,9 @@ export default function QuestionItem (props) {
                 <Button onClick={handleEdit} variant="info" size='sm' type="submit" id="editButton">
                     Update
                 </Button>
+                <br/>
+                <a style={{color:"blue"}}>{message}</a>
+                <br/>
                 <br/>
             </form>
         </li>
