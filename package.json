@@ -25,7 +25,8 @@
     "json-server": "json-server --watch sample_data/db.json --static ./node_modules/json-server/public",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "reset-sample-data": "node sample_data/reset-data.js"
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {
