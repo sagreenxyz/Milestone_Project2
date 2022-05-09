@@ -30,11 +30,11 @@ This project required Front and Back-end development as well APIs. Also we use R
 ![Image of Trivia ERD](./public/erd.png)
 
 ## Wireframe
-![Image of InitialWireframe](./src/Images/InitialWireframe.png)
+![Image of InitialWireframe](https://github.com/Vivonzty15/Milestone_Project2/blob/main/Images/InitialWireframe.png)
 ## Mockup
-![Image of Wireframe](./src/Images/Wireframe.png)
+![Image of Wireframe](https://github.com/Vivonzty15/Milestone_Project2/blob/main/Images/Wireframe.png)
 ## Technology
-![API Database](./src/Images/API data base.png)
+![Image API Database](https://github.com/Vivonzty15/Milestone_Project2/blob/main/Images/API%20data%20base.png)
 - ElephantSQL
 - React
 - Visual Studio
@@ -44,7 +44,7 @@ This project required Front and Back-end development as well APIs. Also we use R
  React Basic Installation
  (https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation)
 ## Usage
-
+###Click here to play:
 [Play](https://astonishing-profiterole-3abd38.netlify.app/)
 ## Sources
 
@@ -112,7 +112,7 @@ Made by:
 ### What we learned:
 - When working as a team, make sure to work in the latest version of the repository.
 - git pull origin main it is a must, so you do not override the previous work of your team.
-- ![Updating the repository](./src/Images/git pull origin main.png)
+- ![Image Updating the repository](https://github.com/Vivonzty15/Milestone_Project2/blob/main/Images/git%20pull%20origin%20main.png)
 - Connecting the Front-End with Back-End.
 - Running Back-end and Front-end syncronized.
 - Score in our questions
