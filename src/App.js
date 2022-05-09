@@ -50,7 +50,7 @@ function App() {
             <Route path='/AboutUs' element={<AboutUs/>}/>
             <Route path='/questions/new' element={<NewQuestion />} />
             <Route path='/questions' element={<Questions />} />
-            <Route path='/:id' element={<ViewQuestion />} />
+            {/* <Route path='/ViewQuestion/:id' element={<ViewQuestion />} /> */}
 
              {/*
             <Route path='/questions/:id/edit' element={<EditQuestion/>} /> */}

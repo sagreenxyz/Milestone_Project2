@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 
 export default function QuestionItem (props) {
+  let [message, setMessage] = useState("")
 
     const handleDelete = async (event) => {
         event.preventDefault();
@@ -16,7 +17,7 @@ export default function QuestionItem (props) {
         const removeIDLabel = document.getElementById("questionIDLabel");
         const removeTextLabel = document.getElementById("questionTextLabel");
 
-        const removeArray = [ removeID, removeText, removeIDLabel, removeTextLabel, removeDeleteBtn ];
+        const removeArray = [ removeID, removeText, removeIDLabel, removeTextLabel, removeDeleteBtn, removeEditBtn ];
 
         const remove =removeArray.map((item) => {
           return (
@@ -43,10 +44,11 @@ export default function QuestionItem (props) {
       const handleEdit = async (event) => {
         event.preventDefault();
         const id = document.getElementById("question_id").value;
-        const question_text = document.getElementById("question_text").value
+        const question_text = document.getElementById("question_text")
     
         await axios
           .put(`http://localhost:5000/questions/${id}`, {
+            question_text: question_text.value
           })
           .then((data) => {
             console.log(data);
@@ -58,6 +60,7 @@ export default function QuestionItem (props) {
             console.log(error)
             console.log("question was not updated");
           });
+          setMessage("updated")
       }
 
       
@@ -65,7 +68,7 @@ export default function QuestionItem (props) {
 
     return (
         <li>
-                
+             <h6>{message}</h6>   
             <form>
             <label id="questionTextLabel" style={{display:"inline-block", width:"100px", textAlign:"right", paddingRight:"10px"}}>Question:</label>
             <input 
@@ -86,9 +89,9 @@ export default function QuestionItem (props) {
                 <Button onClick={handleDelete} variant="danger" size='sm' type="submit" id="deleteButton">
                     Delete
                 </Button>
-                {/* <Button onClick={handleEdit} variant="info" size='sm' type="submit" id="editButton">
+                <Button onClick={handleEdit} variant="info" size='sm' type="submit" id="editButton">
                     Update
-                </Button> */}
+                </Button>
                 <br/>
             </form>
         </li>
