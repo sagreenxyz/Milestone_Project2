@@ -83,7 +83,8 @@ questions.delete('/:id', async (req, res) => {
                 question_id: req.params.id
             }
         })
-        res.status(200).redirect('http://localhost:3000/questions')
+        // res.status(200).redirect('http://localhost:3000/questions')
+        res.status(200).json()
     } catch(err) {
         res.status(500).json(err)
     }

@@ -12,7 +12,7 @@ import QuestionItem from "./QuestionItem"
     })
     
     return (
-        <div>
+        <div style={{textAlign:"center"}}>
             <ul style={{listStyle: "none"}}>
             {display}
             </ul>
