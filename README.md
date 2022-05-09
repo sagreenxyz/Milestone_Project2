@@ -23,6 +23,7 @@ A template of README best practices to make your README simple to understand and
 - [Credits](#credits)
 - [Issues](#issues)
 - [Work In Progress](#WorkInProgress)
+- 
 ## Project Description
 This project required Front and Back-end development as well APIs. Also we use React &Redux and SQL. 
 ## ERD
@@ -44,8 +45,9 @@ This project required Front and Back-end development as well APIs. Also we use R
  React Basic Installation
  (https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation)
 ## Usage
-###Click here to play:
+### Click here to play:
 [Play](https://astonishing-profiterole-3abd38.netlify.app/)
+
 ## Sources
 
 ### Back_End:
